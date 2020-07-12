@@ -3,15 +3,15 @@ from models.user import db, User
 from modules.userform import UserForm
 from modules.edituserform import EditUserForm
 from modules.mockdata import MockDataForm
-import os
-
+from flask_heroku import Heroku
 
 import random
 import string
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+heroku = Heroku(app)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/usersdb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "s14a-key"
 db.init_app(app)
