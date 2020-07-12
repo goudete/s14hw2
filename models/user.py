@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
+from app import app
 
-# Create DB instance
-db = SQLAlchemy()
+db = SQLAlchemy(app)
 
 
 class User(db.Model):
